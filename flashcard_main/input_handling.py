@@ -1,7 +1,5 @@
 """
 This File Contains Various Functions for Handling User Input at Various Times
-
-Revision 0
 """
 
 

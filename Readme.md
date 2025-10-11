@@ -10,24 +10,39 @@ Flashcard Program meant to handle multiple languages and allow setting and sorti
 
 ### TODO
 
-> - Features to Implement
-        - SQL storage (one SQL db per language)
-          - Category tags system
-        - Sort / Study by Category
-        - Algorithm to determine known and struggle words
-          - If you get it right X times in a row move to "learned" or "known" maybe separate these two
-          - Missed multiple times flag as need to study and recur more often
-        - Results Page
-          - Track stats?
-        - Errors Page for incomplete flashcards
-          - Missing info etc
+Features to Implement
+
+  > - SQL storage (one SQL db per language)
+    > - Category tags system
+  > - Sort / Study by Category
+  > - Algorithm to determine known and struggle words
+  >   - If you get it right X times in a row move to "learned" or "known" maybe separate these two
+  > - Missed multiple times flag as need to study and recur more often
+  > - Results Page
+  >   - Track stats
+  > - Errors Page for incomplete flashcards
+  >   - Missing info etc
 
 ---
 
 ### Changelog
 
-VERSION - BUILD NAME - DATE
+---
 
-> - Version Info/Changes
+0.0.0 - Initial - 11 October 2025
+
+> - Initial Build
+> - Implemented
+>   - Basic `user_data.yaml` and `flashcards.db` initialization
+>   - Basic Input Handling skeleton
+>     - Basic String Input
+>     - Placeholder flashcard creation input
+>   - Basic DB Handling
+>     - Empty Check
+>     - Connection
+>     - Tentative DB First Time Setup
+>       - For Now creates a basic SQL setup
+>         - Languages, Flashcards, Category Tables
+>         - Multiple Categories Handling
 
 ---

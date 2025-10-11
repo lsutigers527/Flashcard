@@ -1,7 +1,5 @@
 """
 This File is the Logic Run at App Start
-
-Revision 0
 """
 
 from . import db_handling, input_handling

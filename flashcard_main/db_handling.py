@@ -1,7 +1,5 @@
 """
 This File Contains Functions Related to SQL Database Handling
-
-Revision 0
 """
 
 import sqlite3
