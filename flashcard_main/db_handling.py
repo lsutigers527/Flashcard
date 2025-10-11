@@ -4,6 +4,7 @@ This File Contains Functions Related to SQL Database Handling
 
 import sqlite3
 import os
+from . import input_handling
 
 
 def db_connect() -> sqlite3.Connection:
@@ -91,3 +92,34 @@ def db_check_if_empty(connection: sqlite3.Connection):
         db_first_time_setup(connection)
     else:
         pass
+
+
+def lang_list(connection: sqlite3.Connection) -> list:
+    """
+    lang_list
+
+    Retrieves all languages from the database.
+
+    Args:
+        connection (sqlite3.Connection): DB Connection
+
+    Returns:
+        list: A list of language names
+    """
+    cursor = connection.cursor()
+    cursor.execute("SELECT name FROM languages;")
+    languages = [row[0] for row in cursor.fetchall()]
+    return languages
+
+
+def choose_lang(lang_list: list) -> str:
+    lang: str = input_handling.basic_input_str()
+    lang_list: list = lang_list
+    # Confirm Choice Exists
+    if lang not in lang_list:
+        # likely have to do upper/lowercase handling here
+        print("Please Enter a Valid Language")
+        choose_lang(lang_list)
+
+    else:
+        return lang

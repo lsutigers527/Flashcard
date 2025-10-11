@@ -29,7 +29,7 @@ Features to Implement
 
 ---
 
-0.0.0 - Initial - 11 October 2025
+0.0.0 | Initial | Start: 10 October 2025 | End:
 
 > - Initial Build
 > - Implemented
@@ -44,5 +44,6 @@ Features to Implement
 >       - For Now creates a basic SQL setup
 >         - Languages, Flashcards, Category Tables
 >         - Multiple Categories Handling
+>     - Return a list of available languages and handling if DNE
 
 ---

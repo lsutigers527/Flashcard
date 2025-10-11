@@ -46,5 +46,10 @@ def startup_main() -> None:
 
     # Database Check
     db_handling.db_check_if_empty(connection)
-    print("What Do You want to Study?")
+
+    # Retrieve our language list
+    lang_list: list = db_handling.lang_list(connection)
+    print(f"Choose A Language: {lang_list}")
+    db_handling.choose_lang(lang_list)
+
     # Print Existing Sets / Create New
