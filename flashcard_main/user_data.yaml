@@ -1,0 +1,5 @@
+user:
+  username: Test
+  settings:
+    theme: dark
+    isFirstRun: true
