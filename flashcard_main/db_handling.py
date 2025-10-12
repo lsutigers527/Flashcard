@@ -90,6 +90,7 @@ def db_check_if_empty(connection: sqlite3.Connection):
     # If DB is empty will run initialization
     if len(tables) == 0:
         db_first_time_setup(connection)
+        print("Database Initialized.")
     else:
         pass
 

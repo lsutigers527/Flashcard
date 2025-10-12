@@ -9,10 +9,11 @@ import sqlite3
 
 
 def user_data() -> None:
-    # Check for Existence of User Data File
+    # Get File Path
     script_dir = os.path.dirname(os.path.abspath(__file__))
     file_name = os.path.join(script_dir, "user_data.yaml")
 
+    # Check for Existence of User Data File
     if os.path.exists(file_name):
         # Read User Data
         with open(file_name, "r") as file:
@@ -20,11 +21,14 @@ def user_data() -> None:
         username = data.get("user", {}).get("username", "Unknown")
         print(f"Welcome back {username}!")
 
+    # Creates If DNE
     else:
         print("Welcome to the Language Flashcard App!")
+
         # Get Username
         print("Please Enter A Username.")
         username: str = input_handling.basic_input_str()
+
         # Create User Data
         user_data: dict = {
             "user": {
@@ -32,8 +36,11 @@ def user_data() -> None:
                 "settings": {"theme": "dark"},
             }
         }
+
+        # Create File
         with open(file_name, "w") as file:
             yaml.dump(user_data, file, default_flow_style=False, sort_keys=False)
+
         print("User Data File Created!")
 
 
@@ -46,6 +53,9 @@ def startup_main() -> None:
 
     # Database Check
     db_handling.db_check_if_empty(connection)
+
+    # Options List
+    input_handling.choose_mode()
 
     # Retrieve our language list
     lang_list: list = db_handling.lang_list(connection)

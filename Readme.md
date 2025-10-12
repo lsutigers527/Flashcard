@@ -31,12 +31,13 @@ Features to Implement
 
 0.0.0 | Initial | Start: 10 October 2025 | End:
 
-> - Initial Build
 > - Implemented
 >   - Basic `user_data.yaml` and `flashcards.db` initialization
+>
 >   - Basic Input Handling skeleton
 >     - Basic String Input
 >     - Placeholder flashcard creation input
+>
 >   - Basic DB Handling
 >     - Empty Check
 >     - Connection
