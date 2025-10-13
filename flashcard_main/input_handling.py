@@ -1,6 +1,8 @@
 """
-This File Contains Various Functions for Handling User Input at Various Times
+This File Contains Various Functions for Handling User Input
 """
+
+from . import db_handling
 
 
 def basic_input_str() -> str:
@@ -10,6 +12,7 @@ def basic_input_str() -> str:
 
 
 def flashcard_input() -> dict:
+    # TODO Flashcard Input
     flashcard: dict = {
         "language": "",
         "categories": [],
@@ -19,14 +22,8 @@ def flashcard_input() -> dict:
     }
 
 
-def choose_mode() -> None:
-    # Extend List to Add Modes and Add Functionality Call to Check
-    modes: list[str] = ["Study", "Create New Flashcards", "Edit Flashcards"]
-
-    print("What Do You Want To Do?")
-    for i in range(len(modes)):
-        print(f"{i} | {modes[i]}")
-
+def choose_mode_input() -> int:
+    # Input handling for modes.choose_mode()
     while True:
         user_input: str = basic_input_str()
         try:
@@ -34,17 +31,4 @@ def choose_mode() -> None:
             break
         except:
             print("Please Only Enter the Number For Your Choice")
-            choose_mode()
-
-    if choice == 1:
-        # Study Logic Here
-        pass
-    elif choice == 2:
-        # Create New Logic Here
-        pass
-    elif choice == 3:
-        # Edit Logic Here
-        pass
-    else:
-        print("Please Make a Valid Choice")
-        choose_mode()
+    return choice

@@ -2,7 +2,7 @@
 This File is the Logic Run at App Start
 """
 
-from . import db_handling, input_handling
+from . import db_handling, input_handling, modes
 import yaml  # type: ignore
 import os
 import sqlite3
@@ -44,7 +44,7 @@ def user_data() -> None:
         print("User Data File Created!")
 
 
-def startup_main() -> None:
+def startup_main() -> sqlite3.Connection:
     # Initialize DB
     connection: sqlite3.Connection = db_handling.db_connect()
 
@@ -54,12 +54,5 @@ def startup_main() -> None:
     # Database Check
     db_handling.db_check_if_empty(connection)
 
-    # Options List
-    input_handling.choose_mode()
-
-    # Retrieve our language list
-    lang_list: list = db_handling.lang_list(connection)
-    print(f"Choose A Language: {lang_list}")
-    db_handling.choose_lang(lang_list)
-
-    # Print Existing Sets / Create New
+    # Returns our connection back to main for use
+    return connection

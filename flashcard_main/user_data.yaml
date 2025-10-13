@@ -1,5 +1,4 @@
 user:
-  username: Test
+  username: test2
   settings:
     theme: dark
-    isFirstRun: true

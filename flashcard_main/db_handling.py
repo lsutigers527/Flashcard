@@ -4,7 +4,7 @@ This File Contains Functions Related to SQL Database Handling
 
 import sqlite3
 import os
-from . import input_handling
+from . import input_handling, modes
 
 
 def db_connect() -> sqlite3.Connection:
@@ -95,22 +95,38 @@ def db_check_if_empty(connection: sqlite3.Connection):
         pass
 
 
-def lang_list(connection: sqlite3.Connection) -> list:
+def lang_list(connection: sqlite3.Connection) -> str:
     """
     lang_list
 
-    Retrieves all languages from the database.
+    Retrieves all languages from the database and returns user choice.
 
     Args:
         connection (sqlite3.Connection): DB Connection
 
     Returns:
-        list: A list of language names
+        str: User Language Choice
     """
+    # Get all Existing Languages From DB
     cursor = connection.cursor()
     cursor.execute("SELECT name FROM languages;")
-    languages = [row[0] for row in cursor.fetchall()]
-    return languages
+
+    # Create List From Above
+    languages: list[str] = [row[0] for row in cursor.fetchall()]
+
+    while True:
+        # Empty List Check
+        if not languages:
+            print("There are No Existing Languages To Study")
+            modes.choose_mode(connection)
+            break
+
+        # Print out list and call input for selection
+        print(f"Choose A Language: {languages}")
+        language: str = choose_lang(languages)
+
+        # Return Lang Choice
+        return language
 
 
 def choose_lang(lang_list: list) -> str:
