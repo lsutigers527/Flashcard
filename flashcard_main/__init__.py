@@ -10,3 +10,6 @@ __author__ = "Nick Hebert"
 from . import db_handling
 from . import input_handling
 from . import startup
+from . import flashcard_logic
+from . import flashcards_utility
+from . import modes

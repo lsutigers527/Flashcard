@@ -2,40 +2,47 @@
 This File Contains Various Functions for Handling User Input
 """
 
-from . import db_handling
+from flashcard_main import db_handling, flashcard_logic
 
 
 def basic_input_str(prompt: str) -> str:
-    # TODO Maybe add to print statement what is being input
-    # This is a basic input function that will return a string
+    """
+    basic_input_str
+
+    Handles basic user input operations
+
+    Args:
+        prompt (str): Name of What is Being Entered
+
+    Returns:
+        str: The User Input
+    """
     user_input: str = input(f"Input {prompt}: ")
     return user_input
 
 
 def flashcard_input() -> dict:
     # TODO Flashcard Input - Use Dataclass from flashcard_logic
-    flashcard: dict = {
-        "language": "",
-        "categories": [],
-        "word": "",
-        "pronunciation": "",
-        "translation": "",
-    }
 
-    # TODO Need to Clean up this input handling could be much more elegant
     # Input and Insert Back into Dict
     print("Please Enter The Language: ")
-    flashcard["language"] = basic_input_str(prompt="Language")
+    language: str = basic_input_str(prompt="Language")
 
-    # TODO Create Handling Function For List Input
+    # TODO Handling for categories input
     print("Please Enter the Categories (If multiple separate by comma)")
-    # flashcard["categories"] =  Will have to create a list input function and process it
+    categories = []
 
     print("Please Enter the Word.")
-    flashcard["word"] = basic_input_str(prompt="Word")
+    word: str = basic_input_str(prompt="Word")
 
     print("Enter the Pronunciation")
-    flashcard["pronunciation"] = basic_input_str(prompt="Pronunciation")
+    pronunciation: str = basic_input_str(prompt="Pronunciation")
 
     print("Enter the Translation")
-    flashcard["translation"] = basic_input_str(prompt="Translation")
+    translation: str = basic_input_str(prompt="Translation")
+
+    flashcard: flashcard_logic.Flashcard = flashcard_logic.Flashcard(
+        language, categories, word, pronunciation, translation
+    )
+
+    print(flashcard)

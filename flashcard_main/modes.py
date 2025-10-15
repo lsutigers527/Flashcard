@@ -2,7 +2,7 @@
 This is the logic for modes and related
 """
 
-from . import input_handling, db_handling, flashcards_utility
+from . import input_handling, db_handling, flashcards_utility, flashcard_logic
 import sqlite3
 from time import sleep
 
@@ -69,6 +69,7 @@ def mode_study(connection: sqlite3.Connection) -> None:
 def mode_create(connection: sqlite3.Connection) -> None:
     # TODO Create Functionality
     # This will be the main logic for the create new mode
+    flashcard_logic.new_fc()
     pass
 
 
