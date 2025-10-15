@@ -2,7 +2,7 @@
 This File Contains Various Functions for Handling User Input
 """
 
-from flashcard_main import db_handling, flashcard_logic
+from . import db_handling, flashcard_logic
 
 
 def basic_input_str(prompt: str) -> str:
@@ -21,28 +21,20 @@ def basic_input_str(prompt: str) -> str:
     return user_input
 
 
-def flashcard_input() -> dict:
-    # TODO Flashcard Input - Use Dataclass from flashcard_logic
+def categories_input() -> list:
+    categories: list = []
 
-    # Input and Insert Back into Dict
-    print("Please Enter The Language: ")
-    language: str = basic_input_str(prompt="Language")
+    while True:
+        input: str = basic_input_str(prompt="Category (or DONE)")
 
-    # TODO Handling for categories input
-    print("Please Enter the Categories (If multiple separate by comma)")
-    categories = []
+        if input.upper().strip() == "DONE":
+            print("Categories Input Complete!")
+            print(f"Categories: {categories}")
+            break
 
-    print("Please Enter the Word.")
-    word: str = basic_input_str(prompt="Word")
+        elif input.strip() == "":
+            continue
 
-    print("Enter the Pronunciation")
-    pronunciation: str = basic_input_str(prompt="Pronunciation")
-
-    print("Enter the Translation")
-    translation: str = basic_input_str(prompt="Translation")
-
-    flashcard: flashcard_logic.Flashcard = flashcard_logic.Flashcard(
-        language, categories, word, pronunciation, translation
-    )
-
-    print(flashcard)
+        else:
+            categories.append(input)
+            continue

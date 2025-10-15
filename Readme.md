@@ -57,7 +57,10 @@ The Flashcard Program is a tool designed to enhance language learning by enablin
 - **14 Oct 2025**
   - Implemented beginning stages of `Flashcard` dataclass in `flashcard_logic.py`
   - Moved `choose_mode_input()` function from `input_handling.py` to `modes.py`
-  - Worked on `flashcard_input()` implementation in `input_handling.py`
+  - REMOVED - Worked on `flashcard_input()` implementation in `input_handling.py`
+  - First Pass on Creating Flashcard from input (Not Input to DB Yet)
+  - Removed `flashcard_input()` function and moved it's logic to `new_fc()` function in `flashcard_logic.py`
+    - Started Categories handling
 
 - **12 Oct 2025**
   - Reworked `main.py` to centralize database connection logic.
