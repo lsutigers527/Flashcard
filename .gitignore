@@ -1,7 +1,7 @@
 # Project-specific files
 flashcard_main/flashcards.db
 flashcard_main/user_data.yaml
-
+flashcard_main/__pycache__/
 
 
 

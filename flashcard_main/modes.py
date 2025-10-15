@@ -10,7 +10,7 @@ from time import sleep
 def choose_mode_input() -> int:
     # Input handling for modes.choose_mode()
     while True:
-        user_input: str = input_handling.basic_input_str()
+        user_input: str = input_handling.basic_input_str(prompt="Mode")
         try:
             choice: int = int(user_input)
             break

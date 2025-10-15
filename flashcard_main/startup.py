@@ -27,7 +27,7 @@ def user_data() -> None:
 
         # Get Username
         print("Please Enter A Username.")
-        username: str = input_handling.basic_input_str()
+        username: str = input_handling.basic_input_str(prompt="Username")
 
         # Create User Data
         user_data: dict = {

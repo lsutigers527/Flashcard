@@ -130,7 +130,7 @@ def lang_list(connection: sqlite3.Connection) -> str:
 
 
 def choose_lang(lang_list: list) -> str:
-    lang: str = input_handling.basic_input_str()
+    lang: str = input_handling.basic_input_str(prompt="Language")
     lang_list: list = lang_list
     # Confirm Choice Exists
     if lang not in lang_list:
