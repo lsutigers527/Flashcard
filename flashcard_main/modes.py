@@ -7,6 +7,18 @@ import sqlite3
 from time import sleep
 
 
+def choose_mode_input() -> int:
+    # Input handling for modes.choose_mode()
+    while True:
+        user_input: str = input_handling.basic_input_str()
+        try:
+            choice: int = int(user_input)
+            break
+        except:
+            print("Please Only Enter the Number For Your Choice")
+    return choice
+
+
 def choose_mode(connection: sqlite3.Connection) -> None:
     # Extend List to Add Modes and Add Functionality Call to Check
     modes: list[str] = ["Study", "Create New Flashcards", "Edit Flashcards", "Quit"]
@@ -16,7 +28,7 @@ def choose_mode(connection: sqlite3.Connection) -> None:
         for i in range(len(modes)):
             print(f"{i+1} | {modes[i]}")
 
-        choice: int = input_handling.choose_mode_input()
+        choice: int = choose_mode_input()
 
         if choice == 1:
             # 1 = Study Mode

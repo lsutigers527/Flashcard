@@ -6,13 +6,14 @@ from . import db_handling
 
 
 def basic_input_str() -> str:
+    # TODO Maybe add to print statement what is being input
     # This is a basic input function that will return a string
     user_input: str = input(f"Input: ")
     return user_input
 
 
 def flashcard_input() -> dict:
-    # TODO Flashcard Input
+    # TODO Flashcard Input - Use Dataclass from flashcard_logic
     flashcard: dict = {
         "language": "",
         "categories": [],
@@ -21,14 +22,20 @@ def flashcard_input() -> dict:
         "translation": "",
     }
 
+    # TODO Need to Clean up this input handling could be much more elegant
+    # Input and Insert Back into Dict
+    print("Please Enter The Language: ")
+    flashcard["language"] = basic_input_str()
 
-def choose_mode_input() -> int:
-    # Input handling for modes.choose_mode()
-    while True:
-        user_input: str = basic_input_str()
-        try:
-            choice: int = int(user_input)
-            break
-        except:
-            print("Please Only Enter the Number For Your Choice")
-    return choice
+    # TODO Create Handling Function For List Input
+    print("Please Enter the Categories (If multiple separate by comma)")
+    # flashcard["categories"] =  Will have to create a list input function and process it
+
+    print("Please Enter the Word.")
+    flashcard["word"] = basic_input_str()
+
+    print("Enter the Pronunciation")
+    flashcard["pronunciation"] = basic_input_str()
+
+    print("Enter the Translation")
+    flashcard["translation"] = basic_input_str()
