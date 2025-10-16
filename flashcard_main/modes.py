@@ -63,14 +63,17 @@ def mode_study(connection: sqlite3.Connection) -> None:
 
     # Retrieve the Languages List and get User Input choice
     db_handling.lang_list(connection)
-    pass
 
 
 def mode_create(connection: sqlite3.Connection) -> None:
     # TODO Create Functionality
     # This will be the main logic for the create new mode
-    flashcard_logic.new_fc()
-    pass
+    created_flashcard: flashcard_logic.Flashcard = flashcard_logic.new_fc()
+
+    # Check For Flashcard Info Validity
+    flashcard_logic.fc_check_info(created_flashcard)
+
+    # Upload to DB
 
 
 def mode_edit(connection: sqlite3.Connection) -> None:

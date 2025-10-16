@@ -54,6 +54,12 @@ The Flashcard Program is a tool designed to enhance language learning by enablin
 
 ### Changes
 
+- **15 Oct 2025**
+  - Fixed `categories_input()` categories returning `None`
+  - Created custom `__str__` method for `Flashcard` object
+  - Created `yes_or_no()` to handle yes or no input
+  - Began implementing validation check for flashcard info
+
 - **14 Oct 2025**
   - Implemented beginning stages of `Flashcard` dataclass in `flashcard_logic.py`
   - Moved `choose_mode_input()` function from `input_handling.py` to `modes.py`

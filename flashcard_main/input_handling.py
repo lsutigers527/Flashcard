@@ -22,19 +22,33 @@ def basic_input_str(prompt: str) -> str:
 
 
 def categories_input() -> list:
-    categories: list = []
+    categories: list[str] = []
 
     while True:
-        input: str = basic_input_str(prompt="Category (or DONE)")
+        user_input: str = basic_input_str(prompt="Category (or DONE)").strip()
 
-        if input.upper().strip() == "DONE":
+        if user_input.upper() == "DONE":
             print("Categories Input Complete!")
             print(f"Categories: {categories}")
             break
 
-        elif input.strip() == "":
-            continue
+        # Handles blanks though falsy checks
+        if user_input:
+            categories.append(user_input)
+
+    return categories
+
+
+def yes_or_no() -> bool:
+    # Handles basic Y/N input
+    while True:
+        user_input: str = basic_input_str(prompt="Y or N").upper()
+
+        if user_input == "Y":
+            return True
+
+        elif user_input == "N":
+            return False
 
         else:
-            categories.append(input)
             continue
