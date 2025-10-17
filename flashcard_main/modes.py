@@ -70,6 +70,9 @@ def mode_create(connection: sqlite3.Connection) -> None:
     # This will be the main logic for the create new mode
     created_flashcard: flashcard_logic.Flashcard = flashcard_logic.new_fc()
 
+    # Clear Console Before Check
+    flashcards_utility.clear_console()
+
     # Check For Flashcard Info Validity
     flashcard_logic.fc_check_info(created_flashcard)
 

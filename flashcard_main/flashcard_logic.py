@@ -54,12 +54,6 @@ def new_fc() -> Flashcard:
         language, word, pronunciation, translation, categories
     )
 
-    # Clear Console Before info check
-    flashcards_utility.clear_console()
-
-    # TODO Info Check Here before return
-    fc_check_info(flashcard)
-
     # Return Flashcard Obj
     return flashcard
 
@@ -70,6 +64,11 @@ def fc_check_info(flashcard: Flashcard) -> None:
     print("Does this Look Correct?")
 
     correct: bool = input_handling.yes_or_no()
+
+    if correct == True:
+        pass
+    else:
+        edit_fc(flashcard)
 
 
 def edit_fc(flashcard: Flashcard) -> Flashcard:

@@ -54,6 +54,10 @@ The Flashcard Program is a tool designed to enhance language learning by enablin
 
 ### Changes
 
+- **17 Oct 2025**
+  - Worked on `fc_check_info()`
+  - Moved some logic from `flashcard_logic` to `modes`
+
 - **15 Oct 2025**
   - Fixed `categories_input()` categories returning `None`
   - Created custom `__str__` method for `Flashcard` object
